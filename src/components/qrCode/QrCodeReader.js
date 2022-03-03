@@ -1,25 +1,45 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { QrReader } from "react-qr-reader";
 
 const QrCodeReader = (props) => {
-  const [data, setData] = useState("No result");
+  const [qrscan, setQrscan] = useState("No result");
+  const handleScan = (data) => {
+    if (data) {
+      setQrscan(data);
+    }
+  };
+  const handleError = (err) => {
+    console.error(err);
+  };
 
   return (
-    <>
-      <QrReader
-        onResult={(result, error) => {
-          if (!!result) {
-            setData(result?.text);
-          }
+    <div>
+      <Link to="/">
+        <a style={{ marginRight: 10 }} color="primary">
+          {/* <ArrowBack/> */}
+        </a>
+      </Link>
+      <span>QR Scanner</span>
 
-          if (!!error) {
-            console.info(error);
-          }
-        }}
-        style={{ width: "100%" }}
+      <center>
+        <div style={{ marginTop: 30 }}>
+          <QrReader
+            delay={300}
+            onError={handleError}
+            onScan={handleScan}
+            style={{ height: 240, width: 320 }}
+          />
+        </div>
+      </center>
+
+      <textarea
+        style={{ fontSize: 18, width: 320, height: 100, marginTop: 100 }}
+        rowsMax={4}
+        defaultValue={qrscan}
+        value={qrscan}
       />
-      <p>{data}</p>
-    </>
+    </div>
   );
 };
 

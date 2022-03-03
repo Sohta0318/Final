@@ -6,7 +6,7 @@ const Footer = () => {
     <OriginalFooter>
       <div className="footer-copyright text-center py-3">
         © 2020 Copyright:{" "}
-        <Rights>Yoshino, Sohta,Kaori, Kyoko and Guheim</Rights>
+        <Rights>Yoshino, Sohta,Kaori, Kyoko and Guilherm</Rights>
       </div>
     </OriginalFooter>
   );

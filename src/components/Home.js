@@ -1,5 +1,7 @@
 import React from "react";
+
 import Layout from "./layout/Layout";
+import QrCodeReader from "./qrCode/QrCodeReader";
 import Selection from "./qrCode/Selection";
 
 const Home = () => {
@@ -7,6 +9,8 @@ const Home = () => {
     <>
       <Layout>
         <Selection />
+        {/* <button>Read QR code</button>
+        <QrCodeReader /> */}
       </Layout>
     </>
   );
