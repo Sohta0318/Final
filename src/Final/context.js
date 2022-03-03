@@ -100,6 +100,8 @@ const AppProvider = (props) => {
     const name = e.target.name;
     const value = e.target.value;
     setQuiz({ ...quiz, [name]: value });
+    console.log(value);
+    setInitialQuiz(value);
   };
   const handleSubmit = (e) => {
     e.preventDefault();
