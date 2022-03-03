@@ -5,11 +5,11 @@ import styled from "styled-components";
 
 const Selection = () => {
   const urls = {
-    Default: "https://finalapp99.herokuapp.com/default",
-    Yoshino: "https://finalapp99.herokuapp.com/yoshino",
-    Kaori: "https://finalapp99.herokuapp.com/kaori",
-    Kyoko: "https://finalapp99.herokuapp.com/kyoko",
-    Guheim: "https://finalapp99.herokuapp.com/guilherm",
+    Default: "https://pensive-murdock-459dc4.netlify.app/default",
+    Yoshino: "https://pensive-murdock-459dc4.netlify.app/yoshino",
+    Kaori: "https://pensive-murdock-459dc4.netlify.app/kaori",
+    Kyoko: "https://pensive-murdock-459dc4.netlify.app/kyoko",
+    Guheim: "https://pensive-murdock-459dc4.netlify.app/guilherm",
   };
   const [url, setUrl] = useState("");
 
