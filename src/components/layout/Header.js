@@ -1,24 +1,20 @@
 import React from "react";
-import { Nav } from "react-bootstrap";
+import { Navbar, Container, Nav } from "react-bootstrap";
 
 const Header = () => {
   return (
-    <Nav justify variant="tabs" defaultActiveKey="/home">
-      <Nav.Item>
-        <Nav.Link href="/home">Active</Nav.Link>
-      </Nav.Item>
-      <Nav.Item>
-        <Nav.Link eventKey="link-1">Loooonger NavLink</Nav.Link>
-      </Nav.Item>
-      <Nav.Item>
-        <Nav.Link eventKey="link-2">Link</Nav.Link>
-      </Nav.Item>
-      <Nav.Item>
-        <Nav.Link eventKey="disabled" disabled>
-          Disabled
-        </Nav.Link>
-      </Nav.Item>
-    </Nav>
+    <Navbar bg="dark" variant="dark">
+      <Container>
+        <Navbar.Brand href="/">Home</Navbar.Brand>
+        <Nav className="me-auto">
+          <Nav.Link href="/default">Final</Nav.Link>
+          <Nav.Link href="/yoshino">Yoshino</Nav.Link>
+          <Nav.Link href="/kaori">Kaori</Nav.Link>
+          <Nav.Link href="/kyoko">Kyoko</Nav.Link>
+          <Nav.Link href="/guilherm">Guilherm</Nav.Link>
+        </Nav>
+      </Container>
+    </Navbar>
   );
 };
 

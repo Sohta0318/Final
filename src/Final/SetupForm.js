@@ -16,6 +16,7 @@ const SetupForm = () => {
       return (
         <>
           <option value="books">Books</option>
+          <option value="geography">Geography</option>
           <option value="mythology">Mythology</option>
         </>
       );
@@ -53,7 +54,7 @@ const SetupForm = () => {
     } else {
       setInitialQuiz("books");
     }
-  });
+  }, []);
 
   return (
     <main>
