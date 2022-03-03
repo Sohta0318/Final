@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 const Selection = () => {
   const urls = {
-    Yoshino: "https://final0304-quiz-app.netlify.app/",
+    Yoshino: "/kyoko",
     Kaori: "test",
     Kyoko: "test3",
     Guheim: "test4",

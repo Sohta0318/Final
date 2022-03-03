@@ -1,14 +1,20 @@
-import Layout from "./components/layout/Layout";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Selection from "./components/qrCode/Selection";
+
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Home from "./components/Home";
+import Final from "./Final/App";
 
 function App() {
   return (
-    <>
-      <Layout>
-        <Selection />
-      </Layout>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/kyoko" element={<Final />} />
+        <Route path="/yoshino" element={<Final />} />
+        <Route path="/kaori" element={<Final />} />
+        <Route path="/guilherm" element={<Final />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
