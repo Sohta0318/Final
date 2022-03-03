@@ -20,7 +20,7 @@ const tempUrl =
 const AppContext = React.createContext();
 
 const AppProvider = (props) => {
-  console.log(props);
+  const [initialQuiz, setInitialQuiz] = useState("");
   const [waiting, setWaiting] = useState(true);
   const [loading, setLoading] = useState(false);
   const [questions, setQuestions] = useState([]);
@@ -29,7 +29,7 @@ const AppProvider = (props) => {
   const [error, setError] = useState(false);
   const [quiz, setQuiz] = useState({
     amount: 5,
-    category: "books",
+    category: initialQuiz,
     difficulty: "easy",
   });
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -103,17 +103,18 @@ const AppProvider = (props) => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    const { amount, category, difficulty } = quiz;
-    let url = `${API_ENDPOINT}amount=${amount}&difficulty=${difficulty}&category=${table[category]}&type=multiple`;
-    if (category === "entertainment")
-      url = `${MANGA_API_ENDPOINT}${table[category]}&${amount}&${difficulty}`;
-    else if (category === "animal") url = `${table[category]}`;
+    const { amount, difficulty } = quiz;
+    let url = `${API_ENDPOINT}amount=${amount}&difficulty=${difficulty}&category=${table[initialQuiz]}&type=multiple`;
+    if (initialQuiz === "entertainment")
+      url = `${MANGA_API_ENDPOINT}${table[initialQuiz]}&${amount}&${difficulty}`;
+    else if (initialQuiz === "animal") url = `${table[initialQuiz]}`;
     fetchQuestions(url);
   };
 
   return (
     <AppContext.Provider
       value={{
+        setInitialQuiz,
         waiting,
         loading,
         questions,
@@ -127,6 +128,7 @@ const AppProvider = (props) => {
         quiz,
         handleChange,
         handleSubmit,
+        setQuiz,
       }}
     >
       {props.children}

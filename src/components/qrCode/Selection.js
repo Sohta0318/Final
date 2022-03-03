@@ -5,10 +5,11 @@ import styled from "styled-components";
 
 const Selection = () => {
   const urls = {
-    Yoshino: "/kyoko",
-    Kaori: "test",
-    Kyoko: "test3",
-    Guheim: "test4",
+    Default: "https://finalapp99.herokuapp.com/default",
+    Yoshino: "https://finalapp99.herokuapp.com/yoshino",
+    Kaori: "https://finalapp99.herokuapp.com/kaori",
+    Kyoko: "https://finalapp99.herokuapp.com/kyoko",
+    Guheim: "https://finalapp99.herokuapp.com/guilherm",
   };
   const [url, setUrl] = useState("");
 
@@ -21,7 +22,7 @@ const Selection = () => {
         aria-label="Default select example"
         onChange={onChangeHandler}
       >
-        <Options value="">--Please choose an option--</Options>
+        <Options value={urls.Default}>--Please choose an option--</Options>
         <Options value={urls.Yoshino}>Yoshino</Options>
         <Options value={urls.Kaori}>Kaori</Options>
         <Options value={urls.Kyoko}>Kyoko</Options>

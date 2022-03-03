@@ -1,9 +1,12 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
 import { useGlobalContext } from "./context";
 import { useLocation } from "react-router-dom";
 
 const SetupForm = () => {
+  const { quiz, handleChange, handleSubmit, error, setInitialQuiz } =
+    useGlobalContext();
   const path = useLocation().pathname;
+
   const pathOptions = () => {
     if (path === "/kyoko") {
       return <option value="animal">Animal</option>;
@@ -16,16 +19,42 @@ const SetupForm = () => {
           <option value="mythology">Mythology</option>
         </>
       );
-    } else {
+    } else if (path === "/guilherm") {
       return (
         <>
           <option value="sports">Sports</option>
           <option value="computers">Computers</option>
         </>
       );
+    } else {
+      return (
+        <>
+          <option value="books">Books</option>
+          <option value="geography">Geography</option>
+          <option value="mythology">Mythology</option>
+          <option value="sports">Sports</option>
+          <option value="computers">Computers</option>
+          <option value="entertainment">Entertainment</option>
+          <option value="animal">Animal</option>
+        </>
+      );
     }
   };
-  const { quiz, handleChange, handleSubmit, error } = useGlobalContext();
+
+  useEffect(() => {
+    if (path === "/kyoko") {
+      setInitialQuiz("animal");
+    } else if (path === "/kaori") {
+      setInitialQuiz("entertainment");
+    } else if (path === "/yoshino") {
+      setInitialQuiz("books");
+    } else if (path === "/guilherm") {
+      setInitialQuiz("sports");
+    } else {
+      setInitialQuiz("books");
+    }
+  });
+
   return (
     <main>
       <section className="quiz quiz-small">

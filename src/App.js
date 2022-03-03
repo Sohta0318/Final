@@ -9,6 +9,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/default" element={<Final />} />
         <Route path="/kyoko" element={<Final />} />
         <Route path="/yoshino" element={<Final />} />
         <Route path="/kaori" element={<Final />} />
