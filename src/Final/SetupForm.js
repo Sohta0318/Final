@@ -3,8 +3,15 @@ import { useGlobalContext } from "./context";
 import { useLocation } from "react-router-dom";
 
 const SetupForm = () => {
-  const { quiz, handleChange, handleSubmit, error, setInitialQuiz } =
-    useGlobalContext();
+  const {
+    quiz,
+    handleChange,
+    handleSubmit,
+    error,
+    setInitialQuiz,
+    initialQuiz,
+    categoryHandler,
+  } = useGlobalContext();
   const path = useLocation().pathname;
 
   const pathOptions = () => {
@@ -83,16 +90,9 @@ const SetupForm = () => {
               name="category"
               id="category"
               className="form-input"
-              value={quiz.category}
-              onChange={handleChange}
+              value={initialQuiz}
+              onChange={categoryHandler}
             >
-              {/* <option value="books">Books</option>
-              <option value="geography">Geography</option>
-              <option value="mythology">Mythology</option>
-              <option value="sports">Sports</option>
-              <option value="computers">Computers</option>
-              <option value="entertainment">Entertainment</option>
-              <option value="animal">Animal</option> */}
               {pathOptions()}
             </select>
           </div>

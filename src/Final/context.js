@@ -100,7 +100,9 @@ const AppProvider = (props) => {
     const name = e.target.name;
     const value = e.target.value;
     setQuiz({ ...quiz, [name]: value });
-    console.log(value);
+  };
+  const categoryHandler = (e) => {
+    const value = e.target.value;
     setInitialQuiz(value);
   };
   const handleSubmit = (e) => {
@@ -116,7 +118,9 @@ const AppProvider = (props) => {
   return (
     <AppContext.Provider
       value={{
+        categoryHandler,
         setInitialQuiz,
+        initialQuiz,
         waiting,
         loading,
         questions,
