@@ -38,14 +38,19 @@ const AppProvider = (props) => {
     setLoading(true);
     setWaiting(false);
     let response,
-      manga = "";
+      manga = "",
+      animal = "";
     if (url.indexOf("manga") != -1) {
+      animal = "";
       manga = url.split("&");
       response = await axios(manga[0]).catch((err) => console.log(err));
     } else if (url.indexOf("animal") != -1) {
+      manga = "";
+      animal = url.split("&");
       response = true;
     } else {
       manga = "";
+      animal = "";
       response = await axios(url).catch((err) => console.log(err));
     }
     if (response) {
@@ -54,7 +59,7 @@ const AppProvider = (props) => {
         data = response.data.data[0][manga[2]];
         data = data.slice(0, manga[1]);
       } else if (url.indexOf("animal") != -1) {
-        data = dataQ.default.results;
+        data = dataQ.default.results.slice(0, animal[1]);
       } else data = response.data.results;
       if (data.length > 0) {
         setQuestions(data);
@@ -111,7 +116,7 @@ const AppProvider = (props) => {
     let url = `${API_ENDPOINT}amount=${amount}&difficulty=${difficulty}&category=${table[initialQuiz]}&type=multiple`;
     if (initialQuiz === "entertainment")
       url = `${MANGA_API_ENDPOINT}${table[initialQuiz]}&${amount}&${difficulty}`;
-    else if (initialQuiz === "animal") url = `${table[initialQuiz]}`;
+    else if (initialQuiz === "animal") url = `${table[initialQuiz]}&${amount}`;
     fetchQuestions(url);
   };
 
